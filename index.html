@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase WebRTC Phone</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f0f2f5; padding: 20px; }
+        .container { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h1 { font-size: 1.5rem; text-align: center; color: #1a73e8; }
+        .section { margin-bottom: 20px; border-bottom: 1px solid #eee; pb: 15px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; margin: 5px 0; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        #call-btn { background: #34a853; color: white; }
+        #answer-btn { background: #4285f4; color: white; }
+        #hangup-btn { background: #ea4335; color: white; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        .status { font-size: 0.8rem; color: #666; text-align: center; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📞 My-Ktty Phone</h1>
+
+    <div class="section">
+        <button id="setup-btn">1. マイクを許可する</button>
+        <div id="mic-status" class="status">マイク：未許可</div>
+    </div>
+
+    <div class="section">
+        <p>新規通話を作成：</p>
+        <button id="call-btn" disabled>発信コードを発行</button>
+        <input type="text" id="call-id-display" readonly placeholder="ここにコードが表示されます">
+    </div>
+
+    <div class="section">
+        <p>通話に参加：</p>
+        <input type="text" id="call-id-input" placeholder="相手のコードを入力">
+        <button id="answer-btn" disabled>着信・接続</button>
+    </div>
+
+    <button id="hangup-btn" disabled>通話終了</button>
+
+    <audio id="remote-audio" autoplay></audio>
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
